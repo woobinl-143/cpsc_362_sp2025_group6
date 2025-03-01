@@ -1,0 +1,26 @@
+#Unity generated files
+Library/
+Temp/
+Obj/
+Build/
+BuildPlayer/
+.vs/
+.idea/
+
+#User-specific files
+.user
+.userprefs
+.suo
+.swp
+
+#Windows thumbnail cache files
+Thumbs.db
+
+#macOS directory attributes
+.DS_Store
+
+#JetBrains Rider project files
+.idea/
+
+#Visual Studio for Mac project files
+.vscode/
