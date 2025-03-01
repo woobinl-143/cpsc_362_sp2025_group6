@@ -20,7 +20,7 @@ jobs:
       run: dotnet restore
 
     - name: Run code analysis
-      run: dotnet build --no-restore /p:EnableNETAnalyzers=true /warnaserror
+      run: find . -name '*.cs' -exec dotnet build --no-restore /p:EnableNETAnalyzers=true / warnaserror {} \;
 
     - name: Check formatting
-      run: dotnet format --verify-no-changes
+      run: find . -name '*.cs' - exec dotnet format --verify-no-changes {} \;
