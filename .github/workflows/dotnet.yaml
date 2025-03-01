@@ -1,0 +1,26 @@
+name: C# Linter
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Install dependencies
+      run: dotnet restore
+
+    - name: Run code analysis
+      run: dotnet build --no-restore /p:EnableNETAnalyzers=true /warnaserror
+
+    - name: Check formatting
+      run: dotnet format --verify-no-changes
