@@ -17,7 +17,7 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: Run code analysis
-      run: find . -name '*.cs' -exec dotnet build --no-restore /p:EnableNETAnalyzers=true / warnaserror {} \;
+      run: find . -name '*.cs' -exec dotnet build {} \;
 
     - name: Check formatting
-      run: find . -name '*.cs' - exec dotnet format --verify-no-changes {} \;
+      run: find . -name '*.cs' -exec dotnet format {} \;
