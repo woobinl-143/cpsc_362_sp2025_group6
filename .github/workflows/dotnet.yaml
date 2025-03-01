@@ -16,9 +16,6 @@ jobs:
       with:
         dotnet-version: '8.0.x'
 
-    - name: Install dependencies
-      run: dotnet restore
-
     - name: Run code analysis
       run: find . -name '*.cs' -exec dotnet build --no-restore /p:EnableNETAnalyzers=true / warnaserror {} \;
 
