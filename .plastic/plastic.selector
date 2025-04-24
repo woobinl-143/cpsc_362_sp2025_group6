@@ -1,4 +1,0 @@
-repository "Super Snake/Super Snake@20067134936721@cloud"
-  path "/"
-    br "/main"
-    co "/main"

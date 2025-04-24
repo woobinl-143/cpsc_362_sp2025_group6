@@ -4,12 +4,22 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+// Todo make a parent class "snake" that has snake1 and snake2
 public class Snake : MonoBehaviour
 {
+    // Snake intially moves up
     private Vector2 direction = Vector2.up;
+    // List to keep track of body parts
     private List<Transform> body;
+    // Used to check if game is active 
     private bool IsGameOver = false;
+    // Parts used to make the snake
     public Transform bodyPrefab;
+
+    public float SnakeSpeed = 16.0f;
+
+    // controls
+    
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +27,7 @@ public class Snake : MonoBehaviour
         body = new List<Transform>();
         body.Add(this.transform);
     }
-
+    // Extends body by one part/square
     private void Grow()
     {
         Transform block = Instantiate(this.bodyPrefab);
@@ -28,22 +38,36 @@ public class Snake : MonoBehaviour
 
     // private void Reset()
     // {
+        // Clear the snake
+        // Move snake to intial position
+        
     // }
+
+    private void GameOver()
+    {
+        SnakeSpeed = 0.0f;
+        // disable movement
+        // play sound effect 
+    }
+    // Function to handle collisions
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // When snake touches apple increase size
         if (other.tag == "Apple") {
             Grow();
         }
+        // If snake touches wall or itself, end the game
         else if (other.tag == "Collidable")
         {
             IsGameOver = true;
-            // GameOver();
+            GameOver();
             // Reset();
         }
     }
     // Update is called once per frame
     private void Update()
     {
+        // Handles direction inputs (using WASD)
        if (Input.GetKeyDown(KeyCode.W) && direction != Vector2.down)
        {
         direction = Vector2.up;

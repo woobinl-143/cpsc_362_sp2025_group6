@@ -1126,6 +1126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyPrefab: {fileID: 4426165409512779225, guid: 0c5cdb34921087540b0b9a7833181201, type: 3}
+  SnakeSpeed: 1
 --- !u!1 &1997379624
 GameObject:
   m_ObjectHideFlags: 0
