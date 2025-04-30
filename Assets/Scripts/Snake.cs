@@ -46,6 +46,8 @@ public class Snake : MonoBehaviour
     private void GameOver()
     {
         SnakeSpeed = 0.0f;
+        IsGameOver = true;
+        
         // disable movement
         // play sound effect 
     }
@@ -57,9 +59,9 @@ public class Snake : MonoBehaviour
             Grow();
         }
         // If snake touches wall or itself, end the game
-        else if (other.tag == "Collidable")
+        else if ((other.tag == "Collidable") || (other.tag == "Player2"))
         {
-            IsGameOver = true;
+            SoundManager.Instance.PlayPlayerDeathSound();
             GameOver();
             // Reset();
         }

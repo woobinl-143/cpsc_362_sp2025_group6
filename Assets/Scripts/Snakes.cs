@@ -11,12 +11,12 @@ public class Snakes : MonoBehaviour
     private Vector2 direction = Vector2.up;
     // List to keep track of body parts
     private List<Transform> body;
-    // Used to check if game is active 
-    private bool IsGameOver = false;
     // Parts used to make the snake
     public Transform bodyPrefab;
 
     public float SnakeSpeed = 16.0f;
+
+    public bool IsGameOver;
 
     // controls
     
@@ -46,6 +46,7 @@ public class Snakes : MonoBehaviour
     private void GameOver()
     {
         SnakeSpeed = 0.0f;
+        IsGameOver = true;
         // disable movement
         // play sound effect 
     }
@@ -57,9 +58,8 @@ public class Snakes : MonoBehaviour
             Grow();
         }
         // If snake touches wall or itself, end the game
-        else if (other.tag == "Collidable")
+        else if ((other.tag == "Collidable") || (other.tag == "Player"))
         {
-            IsGameOver = true;
             GameOver();
             // Reset();
         }

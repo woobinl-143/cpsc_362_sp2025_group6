@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameHandler : MonoBehaviour
 {
+    public bool IsGameOver = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,7 @@ public class GameHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // if game over
+        // determine and project who won
     }
 }
