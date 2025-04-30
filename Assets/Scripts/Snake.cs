@@ -47,7 +47,6 @@ public class Snake : MonoBehaviour
     {
         SnakeSpeed = 0.0f;
         IsGameOver = true;
-        
         // disable movement
         // play sound effect 
     }
