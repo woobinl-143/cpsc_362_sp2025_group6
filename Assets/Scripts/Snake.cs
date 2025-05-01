@@ -43,13 +43,22 @@ public class Snake : MonoBehaviour
         
     // }
 
-    private void GameOver()
+private void GameOver()
+{
+    SnakeSpeed = 0.0f;
+    IsGameOver = true;
+
+    GameOver gameOverScript = FindObjectOfType<GameOver>();
+    if (gameOverScript != null)
     {
-        SnakeSpeed = 0.0f;
-        IsGameOver = true;
-        // disable movement
-        // play sound effect 
+        Debug.Log("Calling GameOver Trigger");
+        gameOverScript.TriggerGameOver();
     }
+    else
+    {
+        Debug.LogWarning("GameOver script not found in scene!");
+    }
+}
     // Function to handle collisions
     private void OnTriggerEnter2D(Collider2D other)
     {
