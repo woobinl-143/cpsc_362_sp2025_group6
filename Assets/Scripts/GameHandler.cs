@@ -1,20 +1,30 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class GameHandler : MonoBehaviour
+public class GameOver : MonoBehaviour
 {
-    public bool IsGameOver = false;
-    // Start is called before the first frame update
-    void Start()
+    public GameObject gameOverMenu;
+    public float delayBeforeMainMenu = 2.5f;
+
+    public void TriggerGameOver()
     {
-        Debug.Log("GameHandler.Start");
+        gameOverMenu.SetActive(true);
+        Time.timeScale = 0f;
+        // Only use this line if you want auto-return:
+        // StartCoroutine(GoToMainMenuAfterDelay());
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ReturnToMainMenu()
     {
-        // if game over
-        // determine and project who won
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    private IEnumerator GoToMainMenuAfterDelay()
+    {
+        yield return new WaitForSecondsRealtime(delayBeforeMainMenu);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 }
