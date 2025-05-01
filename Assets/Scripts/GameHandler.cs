@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOver : MonoBehaviour
+public class GameHandler : MonoBehaviour
 {
     public GameObject gameOverMenu;
     public float delayBeforeMainMenu = 2.5f;
