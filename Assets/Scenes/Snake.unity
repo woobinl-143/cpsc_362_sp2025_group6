@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9301cb50cae53d24c92f1b1cbdda1c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverMenu: {fileID: 0}
+  gameOverMenu: {fileID: 575912678}
   delayBeforeMainMenu: 2.5
 --- !u!4 &232873149
 Transform:
@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9301cb50cae53d24c92f1b1cbdda1c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverMenu: {fileID: 0}
+  gameOverMenu: {fileID: 575912678}
   delayBeforeMainMenu: 2.5
 --- !u!1 &363253131
 GameObject:
