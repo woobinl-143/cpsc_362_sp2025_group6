@@ -282,6 +282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9301cb50cae53d24c92f1b1cbdda1c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverMenu: {fileID: 0}
+  delayBeforeMainMenu: 2.5
 --- !u!4 &232873149
 Transform:
   m_ObjectHideFlags: 0
@@ -309,6 +311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9301cb50cae53d24c92f1b1cbdda1c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverMenu: {fileID: 0}
+  delayBeforeMainMenu: 2.5
 --- !u!1 &363253131
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,7 +1027,7 @@ GameObject:
   - component: {fileID: 793982017}
   m_Layer: 0
   m_Name: EnemyManager
-  m_TagString: Untagged
+  m_TagString: Collidable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2549,8 +2553,8 @@ GameObject:
   - component: {fileID: 1981117272}
   - component: {fileID: 1981117271}
   - component: {fileID: 1981117270}
-  - component: {fileID: 1981117273}
   - component: {fileID: 1981117269}
+  - component: {fileID: 1981117274}
   m_Layer: 0
   m_Name: Snake
   m_TagString: Player
@@ -2692,12 +2696,12 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1981117273
+--- !u!114 &1981117274
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2706,11 +2710,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1981117268}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58a5a7b8848d41945b2930c4c6a32daf, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e5b85ecc3860f243bf2495731d6b0dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bodyPrefab: {fileID: 4426165409512779225, guid: 0c5cdb34921087540b0b9a7833181201, type: 3}
-  SnakeSpeed: 1
+  snakeSpeed: 16
+  upKey: 119
+  downKey: 115
+  leftKey: 97
+  rightKey: 100
 --- !u!1 &1997379624
 GameObject:
   m_ObjectHideFlags: 0

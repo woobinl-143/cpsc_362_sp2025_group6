@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-// Todo make a parent class "snake" that has snake1 and snake2
 public class Snake : MonoBehaviour
 {
     // Snake intially moves up

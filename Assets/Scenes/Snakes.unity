@@ -516,7 +516,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyPrefab: {fileID: 7320001522561794522, guid: b999865671d0676439ad050c6a75c494, type: 3}
-  SnakeSpeed: 1
+  snakeSpeed: 16
+  upKey: 273
+  downKey: 274
+  leftKey: 276
+  rightKey: 275
 --- !u!1 &541574162
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,6 +634,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90a55bcd2e2799e41bc4c8473ee1e427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverMenu: {fileID: 0}
+  delayBeforeMainMenu: 2.5
 --- !u!4 &564771432
 Transform:
   m_ObjectHideFlags: 0
@@ -917,8 +923,8 @@ GameObject:
   - component: {fileID: 1145056654}
   - component: {fileID: 1145056653}
   - component: {fileID: 1145056652}
-  - component: {fileID: 1145056651}
   - component: {fileID: 1145056650}
+  - component: {fileID: 1145056655}
   m_Layer: 0
   m_Name: Snake
   m_TagString: Player
@@ -971,20 +977,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0
---- !u!114 &1145056651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1145056649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58a5a7b8848d41945b2930c4c6a32daf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyPrefab: {fileID: 4426165409512779225, guid: 0c5cdb34921087540b0b9a7833181201, type: 3}
-  SnakeSpeed: 1
 --- !u!50 &1145056652
 Rigidbody2D:
   serializedVersion: 4
@@ -1079,6 +1071,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1145056655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145056649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e5b85ecc3860f243bf2495731d6b0dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bodyPrefab: {fileID: 4426165409512779225, guid: 0c5cdb34921087540b0b9a7833181201, type: 3}
+  snakeSpeed: 16
+  upKey: 119
+  downKey: 115
+  leftKey: 97
+  rightKey: 100
 --- !u!1 &1513690695
 GameObject:
   m_ObjectHideFlags: 0

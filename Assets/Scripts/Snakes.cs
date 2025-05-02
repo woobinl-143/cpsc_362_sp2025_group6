@@ -4,101 +4,102 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-// Todo make a parent class "snake" that has snake1 and snake2
-public class Snakes : MonoBehaviour
+public class SnakeController : MonoBehaviour
 {
-    // Snake intially moves up
-    private Vector2 direction = Vector2.up;
-    // List to keep track of body parts
-    private List<Transform> body;
-    // Parts used to make the snake
     public Transform bodyPrefab;
+    public float snakeSpeed = 16.0f;
+    public KeyCode upKey = KeyCode.W;
+    public KeyCode downKey = KeyCode.S;
+    public KeyCode leftKey = KeyCode.A;
+    public KeyCode rightKey = KeyCode.D;
 
-    public float SnakeSpeed = 16.0f;
+    private Vector2 direction = Vector2.up;
+    private List<Transform> body;
+    private bool moving = false;
 
-    public bool IsGameOver;
-
-    // controls
-    
-
-    // Start is called before the first frame update
+    private bool isGameOver = false;
     void Start()
     {
-        body = new List<Transform>();
-        body.Add(this.transform);
-    }
-    // Extends body by one part/square
-    private void Grow()
-    {
-        Transform block = Instantiate(this.bodyPrefab);
-        block.position = body[body.Count - 1].position;
-
-        body.Add(block);
+        body = new List<Transform> { this.transform };
     }
 
-    // private void Reset()
-    // {
-        // Clear the snake
-        // Move snake to intial position
-        
-    // }
-
-    private void GameOver()
+    void Update()
     {
-        SnakeSpeed = 0.0f;
-        IsGameOver = true;
-        // disable movement
-        // play sound effect 
-    }
-    // Function to handle collisions
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        // When snake touches apple increase size
-        if (other.tag == "Apple") {
-            Grow();
-        }
-        // If snake touches wall or itself, end the game
-        else if ((other.tag == "Collidable") || (other.tag == "Player"))
+        if (Input.GetKeyDown(upKey) && direction != Vector2.down)
         {
-            GameOver();
-            // Reset();
+            direction = Vector2.up;
+            moving = true;
+        }
+        else if (Input.GetKeyDown(downKey) && direction != Vector2.up)
+        {
+            direction = Vector2.down;
+            moving = true;
+        }
+        else if (Input.GetKeyDown(leftKey) && direction != Vector2.right)
+        {
+            direction = Vector2.left;
+            moving = true;
+        }
+        else if (Input.GetKeyDown(rightKey) && direction != Vector2.left)
+        {
+            direction = Vector2.right;
+            moving = true;
         }
     }
-    // Update is called once per frame
-    private void Update()
+
+    void FixedUpdate()
     {
-        // Handles direction inputs (using WASD)
-       if (Input.GetKeyDown(KeyCode.UpArrow) && direction != Vector2.down)
-       {
-        direction = Vector2.up;
-       } 
-       else if (Input.GetKeyDown(KeyCode.DownArrow) && direction != Vector2.up)
-       {
-        direction = Vector2.down;
-       }
-       else if (Input.GetKeyDown(KeyCode.LeftArrow) && direction != Vector2.right)
-       {
-        direction = Vector2.left;
-       }
-       else if (Input.GetKeyDown(KeyCode.RightArrow) && direction != Vector2.left)
-       {
-        direction = Vector2.right;
-       }
-    }
-    private void FixedUpdate()
-    {
-        if (!IsGameOver)
-        {
+        if (isGameOver || !moving) return;
+
         for (int i = body.Count - 1; i > 0; i--)
         {
             body[i].position = body[i - 1].position;
         }
-        this.transform.position = new Vector3(
-            Mathf.Round(this.transform.position.x + direction.x),
-            Mathf.Round(this.transform.position.y + direction.y),
+
+        transform.position = new Vector3(
+            Mathf.Round(transform.position.x + direction.x),
+            Mathf.Round(transform.position.y + direction.y),
             0.0f
         );
+    }
+
+    private void Grow()
+    {
+        Transform block = Instantiate(bodyPrefab);
+        block.position = body[body.Count - 1].position;
+        body.Add(block);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Apple")
+        {
+            Grow();
+        }
+        else if (other.CompareTag("Collidable") || other.CompareTag("Player") || other.CompareTag("Player2"))
+        {
+            if (SoundManager.Instance != null)
+            {
+                SoundManager.Instance.PlayPlayerDeathSound();
+            }
+            GameOver();
+        }
+    }
+
+    private void GameOver()
+    {
+        snakeSpeed = 0.0f;
+        isGameOver = true;
+
+        GameOver gameOverScript = FindObjectOfType<GameOver>();
+        if (gameOverScript != null)
+        {
+            Debug.Log("Calling GameOver Trigger");
+            gameOverScript.TriggerGameOver();
+        }
+        else
+        {
+            Debug.LogWarning("GameOver script not found in scene!");
         }
     }
 }
-
