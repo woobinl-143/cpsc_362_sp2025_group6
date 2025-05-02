@@ -21,4 +21,12 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Snakes");
     }
+<<<<<<< HEAD
+=======
+
+    public void Difficulty()
+    {
+        SceneManager.LoadScene("Difficulty");
+    }
+>>>>>>> 4252e60 (Difficulty Menu)
 }
