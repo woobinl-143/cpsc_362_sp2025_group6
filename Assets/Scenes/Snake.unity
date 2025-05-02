@@ -282,8 +282,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9301cb50cae53d24c92f1b1cbdda1c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverMenu: {fileID: 575912678}
-  delayBeforeMainMenu: 1
 --- !u!4 &232873149
 Transform:
   m_ObjectHideFlags: 0
@@ -311,8 +309,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9301cb50cae53d24c92f1b1cbdda1c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverMenu: {fileID: 1302741202}
-  delayBeforeMainMenu: 1
 --- !u!1 &363253131
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,7 +760,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 30
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1328,7 +1324,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90a55bcd2e2799e41bc4c8473ee1e427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsGameOver: 0
+  gameOverMenu: {fileID: 0}
+  delayBeforeMainMenu: 2.5
 --- !u!4 &1180333976
 Transform:
   m_ObjectHideFlags: 0
