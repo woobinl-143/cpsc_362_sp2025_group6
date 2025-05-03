@@ -18,6 +18,6 @@ public class GameOver : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(delayBeforeMainMenu);
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Main Menu");
     }
 }

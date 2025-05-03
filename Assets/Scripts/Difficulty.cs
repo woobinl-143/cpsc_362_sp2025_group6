@@ -14,11 +14,13 @@ public class Difficulty : MonoBehaviour
     // Choose Difficulty
     public void Normal()
     {
-        
+        GameHandler.Spawn = false;
+        Debug.Log("Set to Normal Difficulty");
     }
 
     public void Hard()
     {
-
+        GameHandler.Spawn = true;
+        Debug.Log("Set to Hard Difficulty");
     }
 }

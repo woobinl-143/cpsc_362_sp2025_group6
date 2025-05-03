@@ -18,11 +18,13 @@ public class EnemySpawner : MonoBehaviour
 
     private string[] locations = { "top", "bottom", "left", "right" };
 
-    public float spawnInterval = 2f;
+    public float spawnInterval = 10.0f;
 
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", 1f, spawnInterval);
+        bool spawn = GameHandler.Spawn;
+        if (spawn)
+            InvokeRepeating("SpawnEnemy", 1f, spawnInterval);
     }
 
     private void SpawnEnemy()

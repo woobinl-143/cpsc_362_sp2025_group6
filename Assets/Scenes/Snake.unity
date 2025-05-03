@@ -1050,7 +1050,7 @@ MonoBehaviour:
   RightSpawner: {fileID: 410783717}
   enemyV: {fileID: 6932016553347610691, guid: 286abef25964c6d479d19726ad06a57a, type: 3}
   enemyH: {fileID: 7808144447885239399, guid: d38ea6d240a949e498597f19f7852cfa, type: 3}
-  spawnInterval: 20
+  spawnInterval: 6
 --- !u!4 &793982018
 Transform:
   m_ObjectHideFlags: 0

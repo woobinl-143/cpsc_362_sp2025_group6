@@ -7,6 +7,8 @@ public class GameHandler : MonoBehaviour
     public GameObject gameOverMenu;
     public float delayBeforeMainMenu = 2.5f;
 
+    public static bool Spawn = false;
+
     public void TriggerGameOver()
     {
         gameOverMenu.SetActive(true);
