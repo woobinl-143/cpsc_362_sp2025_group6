@@ -9,16 +9,19 @@ public class Enemy : MonoBehaviour
 
     public void SetDirection(Vector2 dir)
     {
+        // Set direction to constant
         direction = dir.normalized;
     }
 
     private void FixedUpdate()
     {
+        // Move enemy
         transform.Translate(direction * speed * Time.fixedDeltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // When enemy hits deleter object, it destroys itself
         if (other.CompareTag("Deleter"))
         {
             Destroy(gameObject);

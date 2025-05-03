@@ -18,6 +18,7 @@ public class Food : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // When snake touches apple, move it to a random position on map
         if (other.tag == "Player" || other.tag == "Player2") {
             RandomPos();
         }

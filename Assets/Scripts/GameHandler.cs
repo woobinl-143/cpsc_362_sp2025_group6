@@ -16,7 +16,6 @@ public class GameHandler : MonoBehaviour
         // Only use this line if you want auto-return:
         // StartCoroutine(GoToMainMenuAfterDelay());
     }
-
     public void ReturnToMainMenu()
     {
         Time.timeScale = 1f;
