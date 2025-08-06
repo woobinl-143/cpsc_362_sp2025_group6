@@ -1,5 +1,5 @@
 # cpsc_362_sp2025_group6
-Title: Super Snake
+Title: Super Snak
 
 Subtitle: As the snake grows, the challenges also grow
 
